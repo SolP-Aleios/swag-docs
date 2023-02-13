@@ -1,1 +1,6 @@
 site_name: My Docs
+nav: 
+   - Home: 'index.md'
+   - Api: 'api.md'
+plugins: 
+   - swagger-ui-tag
