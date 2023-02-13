@@ -1,0 +1,11 @@
+{
+  "name": "swag-docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:SolP-Aleios/swag-docs.git",
+  "author": "Sol Parker <solp@aleios.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "swagger-ui-dist": "^4.15.5"
+  }
+}
