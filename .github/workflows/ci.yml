@@ -7,21 +7,6 @@ jobs:
   create-pr:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout current repo
-        uses: actions/checkout@v3
-
-      - name: Pushes test file
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.PAT }}
-        with:
-          source_file: "docs"
-          destination_repo: "SolP-Aleios/mock-docs-repo"
-          destination_branch_create: "update-docs"
-          user_email: "solp@aleios.com"
-          user_name: "SolP-Aleios"
-          commit_message: "feat: updated docs"
-
       - name: Checkout docs repo
         uses: actions/checkout@v3
         with:
@@ -31,5 +16,5 @@ jobs:
       - uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.PAT }}
-          base: main
+          add-paths: ./docs
           branch: update-docs
