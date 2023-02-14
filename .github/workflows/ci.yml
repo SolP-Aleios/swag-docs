@@ -9,14 +9,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.PAT }}
-          repository: SolP-Aleios/mock-docs-repo
 
-      - name: List files
-        run: ls -a
-
-      - name: Create PR
-        uses: peter-evans/create-pull-request@v4
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PAT }}
         with:
-          token: ${{ secrets.PAT }}
+          source_file: "docs"
+          destination_repo: "SolP-Aleios/mock-docs-repo"
+          destination_folder: "docs"
+          user_email: "solp@aleios.com"
+          user_name: "SolP-Aleios"
+          commit_message: "feat: updated docs"
