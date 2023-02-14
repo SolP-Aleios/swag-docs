@@ -1,17 +1,22 @@
-name: ci 
+name: ci
 on:
   push:
     branches:
-      - gh-pages 
       - main
 jobs:
-  deploy:
+  create-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          python-version: 3.x
-      - run: pip install mkdocs 
-      - run: pip install mkdocs-swagger-ui-tag
-      - run: mkdocs gh-deploy --force
+          token: ${{ secrets.PAT }}
+          repository: SolP-Aleios/mock-docs-repo
+
+      - name: List files
+        run: ls -a
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.PAT }}
