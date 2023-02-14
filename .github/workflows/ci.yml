@@ -17,7 +17,7 @@ jobs:
         with:
           source_file: "docs"
           destination_repo: "SolP-Aleios/mock-docs-repo"
-          destination_folder: "docs"
+          destination_branch: "update-docs"
           user_email: "solp@aleios.com"
           user_name: "SolP-Aleios"
           commit_message: "feat: updated docs"
